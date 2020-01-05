@@ -3,7 +3,7 @@
 
 Summary:	Python library for symbolic mathematics
 Name:		python-%{module}
-Version:	1.4
+Version:	1.5.1
 Release:	1
 License:	BSD
 Group:		Development/Python
@@ -69,7 +69,7 @@ extensible. SymPy is written entirely in Python 3 and does not require
 any external libraries, except optionally for plotting support.
 
 %prep
-%setup -q -n sympy-%{version}
+%setup -q -n sympy-%{name}-%{version}
 %autopatch -p1
 
 %build
