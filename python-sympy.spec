@@ -51,23 +51,6 @@ Group:		Development/Python
 %description doc
 man  and HTML documentation for sympy.
 
-%package -n python-%{module}
-Summary:        Python 3 library for symbolic mathematics
-Group:		Development/Python
-BuildRequires:	python-devel
-BuildRequires:	python-mpmath
-Requires: 	python-numpy
-Requires:	python-mpmath
-Requires:	python-matplotlib
-%{?python_provide:%python_provide python-%{module}}
-
-%description -n python-%{module}
-SymPy is a Python 3 library for symbolic mathematics. It aims to become
-a full-featured computer algebra system (CAS) while keeping the code
-as simple as possible in order to be comprehensible and easily
-extensible. SymPy is written entirely in Python 3 and does not require
-any external libraries, except optionally for plotting support.
-
 %prep
 %setup -q -n sympy-%{name}-%{version}
 %autopatch -p1
@@ -120,7 +103,7 @@ xvfb-run -n $dnum python3 setup.py test
 %{_docdir}/%{name}-doc/html
 %{_mandir}/man1/isympy.1*
 
-%files -n python3-%{module}
+%files
 %doc AUTHORS LICENSE PKG-INFO 
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
