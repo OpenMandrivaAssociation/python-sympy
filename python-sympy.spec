@@ -52,7 +52,7 @@ Group:		Development/Python
 man  and HTML documentation for sympy.
 
 %prep
-%setup -q -n sympy-%{name}-%{version}
+%setup -q -n sympy-sympy-%{version}
 %autopatch -p1
 
 %build
