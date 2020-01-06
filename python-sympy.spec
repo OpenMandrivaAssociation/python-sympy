@@ -9,7 +9,7 @@ License:	BSD
 Group:		Development/Python
 Url:		http://sympy.googlecode.com/
 Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
-#Patch0:		doc-build.patch
+Patch0:		doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
 BuildRequires:  python3dist(mpmath)
