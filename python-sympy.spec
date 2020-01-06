@@ -92,7 +92,7 @@ xvfb-run -n $dnum python3 setup.py test
 %{_mandir}/man1/isympy.1*
 
 %files
-%doc AUTHORS LICENSE PKG-INFO 
+%doc AUTHORS LICENSE
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
 %{python_sitelib}/__pycache__/*.pyc
