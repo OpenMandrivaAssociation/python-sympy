@@ -9,7 +9,7 @@ License:	BSD
 Group:		Development/Python
 Url:		http://sympy.googlecode.com/
 Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
-Patch0:		doc-build.patch
+#Patch0:		doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
 BuildRequires:  python3dist(mpmath)
@@ -59,16 +59,8 @@ man  and HTML documentation for sympy.
 %build
 %py3_build
 
-# docs
-PYTHONPATH=$(pwd) make -C doc html
-# leftovers
-rm -rf doc/_build/html/.buildinfo
-
 %install
 %py_install
-
-# Remove extra files
-rm -f %{buildroot}%{_bindir}/{,doc}test
 
 # Install the TeXmacs integration
 cp -p data/TeXmacs/bin/tm_sympy %{buildroot}%{_bindir}
