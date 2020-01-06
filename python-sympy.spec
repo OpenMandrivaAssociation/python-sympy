@@ -87,8 +87,8 @@ xvfb-run -n $dnum python3 setup.py test
 %doc examples
 
 %files doc
-%docdir %{_docdir}/%{name}-doc/html
-%{_docdir}/%{name}-doc/html
+#docdir %{_docdir}/%{name}-doc/html
+#{_docdir}/%{name}-doc/html
 %{_mandir}/man1/isympy.1*
 
 %files
