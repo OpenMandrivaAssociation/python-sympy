@@ -9,7 +9,7 @@ License:	BSD
 Group:		Development/Python
 Url:		http://sympy.googlecode.com/
 Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
-Patch0:		doc-build.patch
+#Patch0:		doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
 BuildRequires:  python3dist(mpmath)
@@ -32,7 +32,8 @@ any external libraries, except optionally for plotting support.
 %package texmacs
 Summary:        TeXmacs integration for sympy
 Group:		Development/Python
-Requires:       %{name} = %{version}-%{release}, TeXmacs
+Requires:       %{name} = %{version}-%{release}, 
+Recommends: TeXmacs
 
 %description texmacs
 This package contains a TeXmacs plugin for sympy.
@@ -59,16 +60,8 @@ man  and HTML documentation for sympy.
 %build
 %py3_build
 
-# docs
-PYTHONPATH=$(pwd) make -C doc html
-# leftovers
-rm -rf doc/_build/html/.buildinfo
-
 %install
 %py_install
-
-# Remove extra files
-rm -f %{buildroot}%{_bindir}/{,doc}test
 
 # Install the TeXmacs integration
 cp -p data/TeXmacs/bin/tm_sympy %{buildroot}%{_bindir}
@@ -77,11 +70,6 @@ cp -a data/TeXmacs/progs %{buildroot}%{_datadir}/TeXmacs/plugins/sympy
 
 # Don't let an executable script go into the documentation
 chmod a-x examples/all.py
-
-# Install the HTML documentation
-mkdir -p %{buildroot}%{_docdir}/%{name}-doc
-cp -a doc/_build/html %{buildroot}%{_docdir}/%{name}-doc
-rm -fr %{buildroot}%{_docdir}/%{name}-doc/i18n
 
 %if 0%check_tests
 %check
@@ -100,12 +88,12 @@ xvfb-run -n $dnum python3 setup.py test
 %doc examples
 
 %files doc
-%docdir %{_docdir}/%{name}-doc/html
-%{_docdir}/%{name}-doc/html
+#docdir %{_docdir}/%{name}-doc/html
+#{_docdir}/%{name}-doc/html
 %{_mandir}/man1/isympy.1*
 
 %files
-%doc AUTHORS LICENSE PKG-INFO 
+%doc AUTHORS LICENSE
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
 %{python_sitelib}/__pycache__/*.pyc
