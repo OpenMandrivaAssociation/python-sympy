@@ -70,11 +70,6 @@ cp -a data/TeXmacs/progs %{buildroot}%{_datadir}/TeXmacs/plugins/sympy
 # Don't let an executable script go into the documentation
 chmod a-x examples/all.py
 
-# Install the HTML documentation
-mkdir -p %{buildroot}%{_docdir}/%{name}-doc
-cp -a doc/_build/html %{buildroot}%{_docdir}/%{name}-doc
-rm -fr %{buildroot}%{_docdir}/%{name}-doc/i18n
-
 %if 0%check_tests
 %check
 # The python3 tests fail with Unicode errors without this
