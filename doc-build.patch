@@ -1,0 +1,11 @@
+diff -up ./doc/Makefile.orig ./doc/Makefile
+--- ./doc/Makefile.orig	2019-08-25 12:01:31.185995519 +0300
++++ ./doc/Makefile	2019-08-25 12:01:35.823030891 +0300
+@@ -44,7 +44,6 @@ clean:
+ 	-rm -rf sphinx
+ 	-rm -f $(PDFFILES)
+ 
+-html: SPHINXOPTS += -W
+ html: _build/logo/sympy-notailtext-favicon.ico
+ 	mkdir -p src/.static
+ 	mkdir -p _build/html
