@@ -12,6 +12,7 @@ Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{ve
 #Patch0:		doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
+BuildRequires:  python3dist(mpmath)
 # For docs
 BuildRequires:  python-sphinx
 BuildRequires:  python-matplotlib
