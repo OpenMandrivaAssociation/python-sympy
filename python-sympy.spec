@@ -32,7 +32,8 @@ any external libraries, except optionally for plotting support.
 %package texmacs
 Summary:        TeXmacs integration for sympy
 Group:		Development/Python
-Requires:       %{name} = %{version}-%{release}, TeXmacs
+Requires:       %{name} = %{version}-%{release}, 
+Recommends: TeXmacs
 
 %description texmacs
 This package contains a TeXmacs plugin for sympy.
