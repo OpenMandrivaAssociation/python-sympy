@@ -3,13 +3,14 @@
 
 Summary:	Python library for symbolic mathematics
 Name:		python-%{module}
-Version:	1.5.1
+Version:	1.11.1
 Release:	1
 License:	BSD
 Group:		Development/Python
-Url:		http://sympy.googlecode.com/
-Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
-#Patch0:		doc-build.patch
+Url:		https://github.com/%{module}
+#Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/s/%{module}/%{module}-%{version}.tar.gz
+#Patch0:i	doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
 BuildRequires:  python3dist(mpmath)
@@ -29,6 +30,16 @@ as simple as possible in order to be comprehensible and easily
 extensible. SymPy is written entirely in Python and does not require
 any external libraries, except optionally for plotting support.
 
+%files
+%doc AUTHORS LICENSE
+%{python_sitelib}/sympy/
+%{python_sitelib}/isympy.*
+%{python_sitelib}/__pycache__/*.pyc
+%{python_sitelib}/sympy-%{version}-*.egg-info
+%{_bindir}/isympy
+
+#---------------------------------------------------------------------------
+
 %package texmacs
 Summary:        TeXmacs integration for sympy
 Group:		Development/Python
@@ -38,6 +49,13 @@ Recommends: TeXmacs
 %description texmacs
 This package contains a TeXmacs plugin for sympy.
 
+%files texmacs
+%doc data/TeXmacs/LICENSE
+%{_bindir}/tm_sympy
+%{_datadir}/TeXmacs/plugins/sympy/
+
+#---------------------------------------------------------------------------
+
 %package examples
 Summary:        Sympy examples
 Group:		Development/Python
@@ -46,6 +64,11 @@ Requires:       %{name} = %{version}-%{release}
 %description examples
 This package contains example input for sympy.
 
+%files examples
+%doc examples
+
+#---------------------------------------------------------------------------
+
 %package doc
 Summary:        Documentation for sympy
 Group:		Development/Python
@@ -53,12 +76,18 @@ Group:		Development/Python
 %description doc
 man  and HTML documentation for sympy.
 
+%files doc
+#docdir %{_docdir}/%{name}-doc/html
+#{_docdir}/%{name}-doc/html
+%{_mandir}/man1/isympy.1*
+
+#---------------------------------------------------------------------------
+
 %prep
-%setup -q -n sympy-sympy-%{version}
-%autopatch -p1
+%autosetup -p1 -n %{module}-%{version}
 
 %build
-%py3_build
+%py_build
 
 %install
 %py_install
@@ -79,23 +108,3 @@ let "dnum = $RANDOM % 90 + 10"
 xvfb-run -n $dnum python3 setup.py test
 %endif
 
-%files texmacs
-%doc data/TeXmacs/LICENSE
-%{_bindir}/tm_sympy
-%{_datadir}/TeXmacs/plugins/sympy/
-
-%files examples
-%doc examples
-
-%files doc
-#docdir %{_docdir}/%{name}-doc/html
-#{_docdir}/%{name}-doc/html
-%{_mandir}/man1/isympy.1*
-
-%files
-%doc AUTHORS LICENSE
-%{python_sitelib}/sympy/
-%{python_sitelib}/isympy.*
-%{python_sitelib}/__pycache__/*.pyc
-%{python_sitelib}/sympy-%{version}-*.egg-info
-%{_bindir}/isympy
