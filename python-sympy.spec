@@ -34,7 +34,6 @@ any external libraries, except optionally for plotting support.
 %doc AUTHORS LICENSE
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
-%{python_sitelib}/__pycache__/*.pyc
 %{python_sitelib}/sympy-%{version}-*.egg-info
 %{_bindir}/isympy
 
