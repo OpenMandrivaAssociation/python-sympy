@@ -4,7 +4,7 @@
 Summary:	Python library for symbolic mathematics
 Name:		python-%{module}
 Version:	1.11.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/%{module}
