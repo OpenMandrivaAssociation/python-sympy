@@ -33,6 +33,7 @@ any external libraries, except optionally for plotting support.
 %doc AUTHORS LICENSE
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
+%{python_sitelib}/__pycache__/
 %{python_sitelib}/sympy-*.*info
 %{_bindir}/isympy
 
