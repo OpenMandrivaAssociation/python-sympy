@@ -1,15 +1,14 @@
-%define module	sympy
 %define check_tests 0
 
 Summary:	Python library for symbolic mathematics
-Name:		python-%{module}
-Version:	1.11.1
-Release:	2
+Name:		python-sympy
+Version:	1.12
+Release:	1
 License:	BSD
 Group:		Development/Python
-Url:		https://github.com/%{module}
-#Source0:	https://github.com/%{module}/%{module}/releases/download/%{module}-%{version}/%{module}-%{version}.tar.gz
-Source0:	https://pypi.io/packages/source/s/%{module}/%{module}-%{version}.tar.gz
+Url:		https://github.com/sympy
+#Source0:	https://github.com/sympy/sympy/releases/download/sympy-%{version}/sympy-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/s/sympy/sympy-%{version}.tar.gz
 #Patch0:i	doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
@@ -34,7 +33,7 @@ any external libraries, except optionally for plotting support.
 %doc AUTHORS LICENSE
 %{python_sitelib}/sympy/
 %{python_sitelib}/isympy.*
-%{python_sitelib}/sympy-%{version}-*.egg-info
+%{python_sitelib}/sympy-*.*info
 %{_bindir}/isympy
 
 #---------------------------------------------------------------------------
@@ -83,7 +82,7 @@ man  and HTML documentation for sympy.
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{module}-%{version}
+%autosetup -p1 -n sympy-%{version}
 
 %build
 %py_build
