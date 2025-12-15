@@ -2,7 +2,7 @@
 
 Summary:	Python library for symbolic mathematics
 Name:		python-sympy
-Version:	1.13.3
+Version:	1.14.0
 Release:	1
 License:	BSD
 Group:		Development/Python
