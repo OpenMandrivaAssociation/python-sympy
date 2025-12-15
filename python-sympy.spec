@@ -12,10 +12,11 @@ Source0:	https://pypi.io/packages/source/s/sympy/sympy-%{version}.tar.gz
 #Patch0:i	doc-build.patch
 BuildArch:	noarch
 BuildRequires:  graphviz
-BuildRequires:  python3dist(mpmath)
+BuildRequires:  python%{pyver}dist(mpmath)
+BuildRequires:  python%{pyver}dist(pip)
 # For docs
-BuildRequires:  python-sphinx
-BuildRequires:  python-matplotlib
+BuildRequires:  python%{pyver}dist(sphinx)
+BuildRequires:  python%{pyver}dist(matplotlib)
 BuildRequires:  librsvg
 BuildRequires:  imagemagick
 # for tests
