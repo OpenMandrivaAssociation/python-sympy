@@ -98,7 +98,7 @@ mkdir -p %{buildroot}%{_datadir}/TeXmacs/plugins/sympy
 cp -a data/TeXmacs/progs %{buildroot}%{_datadir}/TeXmacs/plugins/sympy
 
 # Don't let an executable script go into the documentation
-chmod a-x examples/all.py
+#chmod a-x examples/all.py
 
 %if 0%check_tests
 %check
