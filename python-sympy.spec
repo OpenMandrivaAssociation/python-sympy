@@ -56,16 +56,16 @@ This package contains a TeXmacs plugin for sympy.
 
 #---------------------------------------------------------------------------
 
-%package examples
-Summary:        Sympy examples
-Group:		Development/Python
-Requires:       %{name} = %{version}-%{release}
+#package examples
+#Summary:        Sympy examples
+#Group:		Development/Python
+#Requires:       %{name} = %{version}-%{release}
 
-%description examples
-This package contains example input for sympy.
+#description examples
+#This package contains example input for sympy.
 
-%files examples
-%doc examples
+#files examples
+#doc examples
 
 #---------------------------------------------------------------------------
 
