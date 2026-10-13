@@ -3,7 +3,7 @@
 Summary:	Python library for symbolic mathematics
 Name:		python-sympy
 Version:	1.14.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/sympy
@@ -14,6 +14,8 @@ BuildArch:	noarch
 BuildRequires:  graphviz
 BuildRequires:  python%{pyver}dist(mpmath)
 BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(wheel)
 # For docs
 BuildRequires:  python%{pyver}dist(sphinx)
 BuildRequires:  python%{pyver}dist(matplotlib)
